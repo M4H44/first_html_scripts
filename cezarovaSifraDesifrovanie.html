@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         // encrypted message
+        let encryptedMessage = "afcsb";
+        document.write("Encrypted message: " + encryptedMessage + "<br />");
+
+        let decryptedMessage = "";
+        let shift = 1;
+
+        for (let i = 0; i < encryptedMessage.length; i++) {
+            let ascii = encryptedMessage.charCodeAt(i);
+
+            // posun späť o 1
+            ascii -= shift;
+
+            // ak by sme šli pred 'a' (97), vrátime sa na 'z' (122)
+            if (ascii < 97) {
+                ascii += 26;
+            }
+
+            let character = String.fromCharCode(ascii);
+            decryptedMessage += character;
+        }
+
+        document.write("Decrypted message: " + decryptedMessage);
+    </script>
+</body>
+</html>

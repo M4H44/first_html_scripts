@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let language = "JavaScript";
+document.write(language[0]); // prints the first character of the string
+document.write(language[4]); // prints the fifth character of the string
+document.write("<br >");
+
+document.write(language.charAt(0));
+document.write(language.charAt(4));
+document.write("<br >");
+
+document.write(language.indexOf("a"));
+document.write("<br />");
+document.write(language.indexOf("S"));
+document.write("<br />");
+document.write(language.indexOf("x"));
+document.write("<br >");
+
+document.write(language.lastIndexOf("a"));
+document.write("<br >");
+
+let composer = "Wolfgang Amadeus Mozart";
+document.write(composer.substring(9, 16));
+document.write("<br >");
+
+let character = "a";
+let asciiValue = character.charCodeAt(0); // Converts a character to its ASCII value
+document.write(`Character '${character}' has been converted to ASCII value ${asciiValue}`);
+document.write("<br >");
+
+let asciiValue1 = 98;
+let character1 = String.fromCharCode(asciiValue1); // Converts an ASCII value to a character
+document.write(`ASCII value ${asciiValue1} has been converted to character '${character1}'`);
+
+    </script>
+</body>
+</html>
