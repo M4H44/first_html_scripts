@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        document.write("<h1>Empowerer</h1>");
+
+let base = parseInt(prompt("Enter the base of the power: "));
+let exponent = parseInt(prompt("Enter the exponent: "));
+
+let result = 1;
+for (let i = 0; i < exponent; i++) {
+    result *= base ;
+}
+
+document.write("Result: " + result + "<br>");
+document.write("Thank you for using the empowerer");
+    </script>
+</body>
+</html>
