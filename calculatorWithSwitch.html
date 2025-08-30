@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = 9;
+let b = 3;
+
+document.write("Welcome to the calculator <br />");
+
+let choice = parseInt(prompt("Choose an operation:\n1 - addition\n2 - subtraction\n3 - multiplication\n4 - division"));
+let example = "";
+
+switch (choice) {
+    case 1:
+        example = `${a} + ${b} = ${a + b}`;
+        break;
+    case 2:
+        example = `${a} - ${b} = ${a - b}`;
+        break;
+    case 3:
+        example = `${a} * ${b} = ${a * b}`;
+        break;
+    case 4:
+        example = `${a} / ${b} = ${a / b}`;
+        break;
+    default:
+        example = "Invalid input";
+}
+
+document.write("Result: " + example + "<br />");
+
+document.write("<br />Thank you for using the calculator.");
+    </script>
+</body>
+</html>
