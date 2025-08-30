@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quadratic equation</title>
+</head>
+<body>
+    <h1>Quadratic equation</h1>
+
+    <script>
+        // načítanie koeficientov od používateľa
+        let a = parseFloat(prompt("Gradually enter the a,b, and c coefficients for the quadratic equation ax^2+bx+c=0. Now enter the coefficient a:"));
+        let b = parseFloat(prompt("Now enter the coefficient b:"));
+        let c = parseFloat(prompt("Now enter the coefficient c:"));
+
+        // diskriminant
+        let D = b*b - 4*a*c;
+
+        if (D < 0) {
+            document.write("The equation has no real roots.");
+        } else if (D === 0) {
+            let x = -b / (2*a);
+            document.write("The equation has only a single root x = " + x);
+        } else {
+            let x1 = (-b + Math.sqrt(D)) / (2*a);
+            let x2 = (-b - Math.sqrt(D)) / (2*a);
+            document.write("The equation has two roots: x1 = " + x1 + " and x2 = " + x2);
+        }
+    </script>
+</body>
+</html>

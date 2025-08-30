@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smiley</title>
+    <style>
+        #result {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 20px;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Smiley</h1>
+
+    <div id="result"></div>
+
+    <script>
+        let smiley = prompt("Enter smiley:").trim();
+
+        let message = "";
+
+        switch (smiley) {
+            case ":-)":
+                message = "Your smiley is happy";
+                break;
+            case ":-(":
+                message = "Your smiley is sad";
+                break;
+            case ":-x":
+                message = "Your smiley is angry";
+                break;
+            case ":-P":
+                message = "Your smiley is playful";
+                break;
+            default:
+                message = "Unknown smiley!";
+        }
+
+        document.getElementById("result").innerText = message;
+    </script>
+</body>
+</html>
