@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let basket = []; // our basket is empty
+basket[0] = "apple"; // first, we will add an apple into the basket (first index)
+basket[1] = "banana"; // then we will add a banana into the second index
+
+document.write(basket[0] + "<br>" + basket[1] + "<br>");  // and now we will write out the contents of the basket
+let numbers = [];
+for (let i = 0; i < 10; i++) {
+    numbers [i] = i + 1;
+}
+
+for (let number of numbers) {
+    document.write(number + " " + "<br>");
+}
+let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+let today = new Date();
+let dayOfTheWeek = today.getDay();
+document.write("Today is " + days[dayOfTheWeek] + "<br>");
+
+let days1 = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+days1.push("Saturday"); // inserts Saturday at the end of the array
+days1.unshift("Sunday"); // inserts Sunday at the start of the array
+
+for (let day of days1) {
+    document.write(day + " ");
+}
+document.write("<br >");
+
+let fruit = ["apple", "pear", "banana", "raspberry", "strawberry", "apricot", "kiwi", "plum"];
+fruit.splice(2, 3);
+for (let currentFruit of fruit) {
+    document.write(currentFruit + " ");
+}
+document.write("<br >");
+fruit.splice(3);
+for (let currentFruit of fruit) {
+    document.write(currentFruit + " ");
+}
+document.write("<br >");
+fruit.splice(2, 0, "raspberry");
+for (let currentFruit of fruit) {
+    document.write(currentFruit + " ");
+}
+
+document.write("<br >");
+fruit.splice(0, 1, "banana");
+for (let currentFruit of fruit) {
+    document.write(currentFruit + " ");
+}
+
+document.write("<br >");
+fruit.splice(0, 2, "strawberry", "apple");
+for (let currentFruit of fruit) {
+    document.write(currentFruit + " ");
+}
+    </script>
+</body>
+</html>
