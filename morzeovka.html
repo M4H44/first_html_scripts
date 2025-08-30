@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morse Decoder</title>
+</head>
+<body>
+    <script>
+        // the string we want to decode
+        let encryptedMessage = ".-.. . --- -. .- .-. -.. ---";
+
+        // string with the decrypted message
+        let decryptedMessage = "";
+
+        let alphabet = "abcdefghijklmnopqrstuvwxyz";
+        let morseCodes = [
+          ".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....",
+          "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-",
+          ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."
+        ];
+
+        // rozdelíme správu podľa medzier
+        let characters = encryptedMessage.split(" ");
+
+        // iterácia cez jednotlivé znaky Morseovky
+        for (let morseCode of characters) {
+            let alphabetCharacter = '?';
+
+            let index = morseCodes.indexOf(morseCode);
+
+            // ak bol znak nájdený
+            if (index >= 0) {
+                alphabetCharacter = alphabet.charAt(index);
+            }
+            decryptedMessage += alphabetCharacter;
+        }
+
+        document.write("Original message: " + encryptedMessage + "<br>");
+        document.write("Decrypted message: " + decryptedMessage + "<br>");
+    </script>
+</body>
+</html>

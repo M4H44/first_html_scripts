@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       let hosts = 'Argentina';
+let visitors = 'Barbados';
+
+let result = hosts.localeCompare(visitors);
+
+if (result < 0) {
+    document.write('String "hosts" is BEFORE the string "visitors" in alphabetical order.');
+} else if (result > 0) {
+    document.write('String "hosts" is AFTER the string "visitors" in alphabetical order.');
+} else {
+    document.write('String "hosts" and "visitors" matches in alphabetical order.');
+}
+document.write("<br >");
+
+let words = ['apple', 'orange', 'banana'];
+let sentence = words.join(': '); // joins array elements with a comma as a separator
+document.write(sentence);
+document.write("<br >");
+
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+document.write(numbers.join(' '));
+document.write("<br >");
+
+let question = 'how are you';
+let wordss = question.split(" "); // [0] how [1] are [2] you
+for (let word of wordss) {
+    document.write(word + "<br>");
+}
+    </script>
+</body>
+</html>

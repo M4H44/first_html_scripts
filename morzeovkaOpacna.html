@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morse Decoder & Encoder</title>
+</head>
+<body>
+    <script>
+        let alphabet = "abcdefghijklmnopqrstuvwxyz";
+        let morseCodes = [
+          ".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....",
+          "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-",
+          ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."
+        ];
+
+        // --- DEKÓDOVANIE: Morse -> text ---
+        let encryptedMessage = ".-.. . --- -. .- .-. -.. ---";
+        let decryptedMessage = "";
+
+        let characters = encryptedMessage.split(" ");
+        for (let morseCode of characters) {
+            let alphabetCharacter = '?';
+            let index = morseCodes.indexOf(morseCode);
+            if (index >= 0) {
+                alphabetCharacter = alphabet.charAt(index);
+            }
+            decryptedMessage += alphabetCharacter;
+        }
+
+        document.write("<h3>Dekódovanie</h3>");
+        document.write("Original Morse: " + encryptedMessage + "<br>");
+        document.write("Decrypted text: " + decryptedMessage + "<br><br>");
+
+        // --- KÓDOVANIE: Text -> Morse ---
+        let normalMessage = "leonardo";
+        let encodedMessage = "";
+
+        for (let ch of normalMessage.toLowerCase()) {
+            let index = alphabet.indexOf(ch);
+            if (index >= 0) {
+                encodedMessage += morseCodes[index] + " ";
+            } else if (ch === " ") {
+                encodedMessage += "/ "; // "/" označí medzeru medzi slovami
+            }
+        }
+
+        document.write("<h3>Kódovanie</h3>");
+        document.write("Original text: " + normalMessage + "<br>");
+        document.write("Encoded Morse: " + encodedMessage + "<br>");
+    </script>
+</body>
+</html>
