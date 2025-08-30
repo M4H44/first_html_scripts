@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let numbers = [];
+
+        // naplnenie poľa číslami 10 až 1
+        for (let i = 10; i >= 1; i--) {
+            numbers.push(i);
+        }
+
+        // vypísanie poľa ako zoznamu
+        document.write("<ul>");
+        for (let i = 0; i < numbers.length; i++) {
+            document.write("<li>" + numbers[i] + "</li>");
+        }
+        document.write("</ul>");
+    </script>
+</body>
+</html>

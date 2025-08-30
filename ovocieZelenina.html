@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+    let fruits = ["apple", "orange", "banana", "raspberry", "strawberry", "pear"];
+        let vegetables = ["carrot", "potato", "broccoli", "onion", "tomato"];
+
+        let crop = prompt("Enter a crop name:").toLowerCase();
+
+        if (fruits.includes(crop)) {
+            document.write("<p>" + crop + " is a fruit.</p>");
+        } else if (vegetables.includes(crop)) {
+            document.write("<p>" + crop + " is a vegetable.</p>");
+        } else {
+            document.write("<p>Sorry, I don't know this crop: " + crop + "</p>");
+        }
+   </script> 
+</body>
+</html>

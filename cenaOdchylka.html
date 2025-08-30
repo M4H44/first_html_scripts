@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let prices = [350, 280, 128, 192, 432];
+
+        // výpočet priemeru
+        let sum = 0;
+        for (let price of prices) {
+            sum += price;
+        }
+        let average = sum / prices.length;
+
+        // odchýlka 3. produktu (index 2, lebo pole začína od 0)
+        let deviation = Math.abs(prices[2] - average);
+
+        document.write("The 3rd product deviates from the average price by $" + deviation);
+    </script>
+</body>
+</html>
