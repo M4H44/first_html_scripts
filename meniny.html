@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // This script comes from the web ictdemy.com
+// It may be used and modified as desired, but this text may not be deleted from it
+
+// we will create an empty arrays of months and gradually add to it a field with holidays in the given month
+let months = [];
+
+// January
+months.push(["New Year's Day", "Basil", "Genevieve", "Elizabeth Ann Seton", "Edward the Confessor", "Epiphany (Three Kings' Day)", "Raymond", "Lucian", "Adrian", "William", "Theodosius", "Aelred", "Hilary", "Felix", "Paul", "Marcellus", "Anthony", "Margaret", "Wulfstan", "Fabian", "Agnes", "Vincent", "Emerentiana", "Francis de Sales", "Conversion of Saint Paul", "Timothy and Titus", "Angela", "Thomas Aquinas", "Gildas", "Charles", "John Bosco"]);
+// February
+months.push(["Brigid", "Presentation of Jesus", "Blaise", "Gilbert", "Agatha", "Paul Miki and Companions", "Colette", "Jerome Emiliani", "Apollonia", "Scholastica", "Our Lady of Lourdes", "Damian", "Catherine de Ricci", "Cyril and Methodius (Valentine's Day)", "Faustina", "Juliana", "Seven Founders of the Servite Order", "Bernadette", "Conrad", "Eleutherius", "Peter Damian", "Chair of Saint Peter", "Polycarp", "Matthias", "Walburga", "Alexander", "Gabriel of Our Lady of Sorrows", "Oswald", "John Cassian (Leap Year)"]);
+// March
+months.push(["David", "Chad", "Katharine Drexel", "Casimir", "John Joseph of the Cross", "Colette", "Perpetua and Felicity", "John of God", "Frances of Rome", "Victor", "Rosalia", "Gregory", "Euphrasia", "Matilda", "Louise de Marillac", "Heribert", "Patrick (Saint Patrick's Day)", "Cyril of Jerusalem", "Joseph (Saint Joseph's Day)", "Cuthbert", "Benedict", "Lea", "Turibius of Mogrovejo", "Gabriel", "Annunciation", "Margaret Clitherow", "John of Egypt", "Sixtus III", "Gladys", "John Climacus", "Benjamin"]);
+// April
+months.push(["Hugh", "Francis of Paola", "Richard of Chichester", "Isidore", "Vincent Ferrer", "William of Eskilsoe", "John Baptist de la Salle", "Julie Billiart", "Mary Cleophas", "Fulbert of Chartres", "Gemma Galgani", "Julius I", "Martin I", "Lidwina", "Paternus", "Bernadette", "Stephen Harding", "Perfectus", "Emma", "Agnes of Montepulciano", "Anselm", "Soter and Caius", "George (Saint George's Day)", "Fidelis", "Mark", "Cletus", "Zita", "Peter Chanel", "Catherine of Siena", "Pius V"]);
+// May
+months.push(["Joseph the Worker", "Athanasius", "Philip and James", "Florian", "Hilary of Arles", "John before the Latin Gate", "Stanislav", "Victor", "Gregory Nazianzen", "Solomon", "Ignatius", "Pancras", "Servatius", "Boniface", "Isidore the Farmer", "Margaret of Cortona", "Paschal Baylon", "John I", "Dunstan", "Bernardine of Siena", "Christopher Magallanes", "Rita of Cascia", "John Baptist Rossi", "Mary Help of Christians", "Bede", "Philip Neri", "Augustine of Canterbury", "Germanus", "Maximinus", "Joan of Arc", "Visitation of the Blessed Virgin Mary"]);
+// June
+months.push(["Justin", "Marcellinus and Peter", "Charles Lwanga and Companions", "Francis Caracciolo", "Boniface", "Norbert", "Robert of Newminster", "William of York", "Columba", "Margaret of Scotland", "Barnabas", "John of St. Facundo", "Anthony of Padua", "Methodius", "Vitus", "John Francis Regis", "Botolph", "Gregory Barbarigo", "Romuald", "Silverius", "Aloysius Gonzaga", "Thomas More", "John Fisher", "Nativity of John the Baptist", "Prosper", "Josemaria Escriva", "Cyril of Alexandria", "Irenaeus", "Peter and Paul", "First Martyrs of the Church of Rome"]);
+// July
+months.push(["Aaron", "Otto", "Thomas", "Elizabeth of Portugal", "Anthony Maria Zaccaria", "Maria Goretti", "Pantaenus", "Kilian", "Augustine Zhao Rong", "Rufina", "Benedict", "John Gualbert", "Henry", "Kateri Tekakwitha", "Bonaventure", "Our Lady of Mount Carmel", "Alexis", "Frederick", "Macrina", "Apollinaris", "Lawrence of Brindisi", "Mary Magdalene", "Bridget of Sweden", "Charbel Makhlouf", "James the Greater", "Joachim and Anne", "Pantaleon", "Victor I", "Martha", "Peter Chrysologus", "Ignatius of Loyola"]);
+// August
+months.push(["Alphonsus Liguori", "Eusebius of Vercelli", "Lydia", "John Vianney", "Transfiguration of the Lord", "Oswald", "Sixtus II", "Dominic", "Teresa Benedicta of the Cross", "Lawrence", "Clare", "Jane Frances de Chantal", "Hippolytus", "Maximilian Kolbe", "Assumption of the Blessed Virgin Mary", "Stephen of Hungary", "Hyacinth", "Helena", "John Eudes", "Bernard", "Pius X", "Queenship of Mary", "Rose of Lima", "Bartholomew", "Louis of France", "Joseph Calasanz", "Monica", "Augustine of Hippo", "Beheading of John the Baptist", "Jeanne Jugan", "Raymond Nonnatus"]);
+// September
+months.push(["Giles", "Ingrid", "Gregory the Great", "Rosalia", "Teresa of Calcutta", "Eleutherius", "Regina", "Nativity of the Blessed Virgin Mary", "Peter Claver", "Nicholas of Tolentino", "Paphnutius", "Most Holy Name of Mary", "John Chrysostom", "Exaltation of the Holy Cross", "Our Lady of Sorrows", "Cornelius and Cyprian", "Robert Bellarmine", "Joseph of Cupertino", "Januarius", "Andrew Kim Taegon", "Matthew", "Maurice", "Pio of Pietrelcina", "Our Lady of Walsingham", "Sergius", "Cosmas and Damian", "Vincent de Paul", "Wenceslaus", "Michael, Gabriel and Raphael", "Jerome"]);
+// October
+months.push(["Therese of Lisieux", "Guardian Angels", "Gerard of Brogne", "Francis of Assisi", "Faustina Kowalska", "Bruno", "Our Lady of the Rosary", "Pelagia", "Denis and Companions", "Francis Borgia", "John XXIII", "Wilfrid", "Taylor", "Callistus I", "Teresa of Avila", "Margaret Mary Alacoque", "Ignatius of Antioch", "Luke", "Isaac Jogues and Companions", "Paul of the Cross", "Hilarion", "John Paul II", "John of Capistrano", "Anthony Mary Claret", "Crispin", "Alfred the Great", "Frumentius", "Simon and Jude", "Narcissus", "Marcellus", "All Hallows Eve"]);
+// November
+months.push(["All Saints' Day", "All Souls' Day", "Martin de Porres", "Charles Borromeo", "Elizabeth", "Leonard", "Willibrord", "Godfrey", "Dedication of the Lateran Basilica", "Leo the Great", "Martin of Tours (Remembrance Day)", "Josaphat", "Stanislav Kostka", "Lawrence O'Toole", "Albert the Great", "Greta", "Elizabeth of Hungary", "Rose Philippine Duchesne", "Mechtilde", "Edmund", "Presentation of the Blessed Virgin Mary", "Cecilia", "Clement I", "Andrew Dung-Lac and Companions", "Catherine of Alexandria", "John Berchmans", "Virgil", "James of the Marches", "Saturninus", "Andrew (Saint Andrew's Day)"]);
+// December
+months.push(["Edmund Campion", "Bibiana", "Francis Xavier", "John Damascene", "Sabbas", "Nicholas", "Ambrose", "Immaculate Conception", "Juan Diego", "Eulalia", "Damasus I", "Our Lady of Guadalupe", "Lucy", "John of the Cross", "Nino", "Adelaide", "Lazarus", "Flannan", "Anastasius I", "Dominic of Silos", "Peter Canisius", "Frances Xavier Cabrini", "John of Kanty", "Christmas Eve", "Christmas Day", "Stephen (Boxing Day)", "John the Apostle", "Holy Innocents", "Thomas Becket", "Sylvester I", "John Wycliffe"]);
+    
+
+// now we proceed to the statement itself
+let today = new Date();
+let day = today.getDate()-1;
+let month = today.getMonth();
+document.write("Today is  " + months[month][day] + "'s name day");
+    </script>
+</body>
+</html>

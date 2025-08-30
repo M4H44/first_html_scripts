@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let movieTheater = [];
+
+for (let i = 0; i < 5; i++) {
+    movieTheater[i] = [];
+    for (let j = 0; j < 5; j++) {
+        movieTheater[i][j] = 0; // filling the array with 0
+    }
+}
+movieTheater[2][2] = 1;
+
+// Edit of the 4th row
+for (let i = 1; i < 4; i++) {
+    movieTheater[3][i] = 1;
+}
+
+// Filling the entire last row
+for (let i = 0; i < 5; i++) {
+    movieTheater[4][i] = 1;
+}
+document.write("<table border='1'>");
+
+for (let i = 0; i < movieTheater.length; i++) {
+    document.write("<tr>");
+    for (let j = 0; j < movieTheater[i].length; j++) {
+        document.write("<td>"+ movieTheater[i][j] + "</td>");
+    }
+    document.write("</tr>");
+}
+
+document.write("</table>");
+document.write("<br >");
+let movieTheater1 = [
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 1, 0, 0],
+    [0, 1, 1, 1, 0],
+    [1, 1, 1, 1, 1]
+];
+document.write("<table border='1'>");
+
+for (let i = 0; i < movieTheater1.length; i++) {
+    document.write("<tr>");
+    for (let j = 0; j < movieTheater1[i].length; j++) {
+        document.write("<td>"+ movieTheater1[i][j] + "</td>");
+    }
+    document.write("</tr>");
+}
+document.write("<br >");
+    </script>
+</body>
+</html>

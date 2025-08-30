@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let names = ["Daniel", "Robin", "Hansel", "Annie"];
+names.sort();
+for (let name of names) {
+    document.write(name + " ");
+}
+document.write("<br >");
+names.reverse();
+for (let name of names) {
+    document.write(name + " ");
+}
+document.write("<br >");
+
+let numbers = [5, 3, 30, 25];
+numbers.sort();
+for (let number of numbers) {
+    document.write(number + " ");
+}
+document.write("<br >");
+
+let numbers1 = [5, 3, 30, 25];
+numbers1.sort(function(a, b) { return a - b });
+for (let number of numbers1) {
+    document.write(number + " ");
+}
+document.write("<br >");
+
+    </script>
+</body>
+</html>
