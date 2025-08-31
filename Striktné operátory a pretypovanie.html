@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        document.write('Equality by value (1 == "1"): ' + (1 == '1') + '<br>');
+        document.write('Equality by value and type (1 === "1"): ' + (1 === '1') + '<br>');
+        document.write((5 !== '5') + '<br>'); // true: The number 5 is not equal to the text '5'.
+        document.write((10 !== 20) + '<br>'); // true: The value of the two numbers is different.
+        document.write((5 !== 'five') + '<br>'); // true: Neither value nor data type is equal.
+        document.write(('five' !== 'five') + '<br>'); // false: Both the value and the data type are equal.
+        
+        if ('' == '0'); // false
+        if ('' == 0); // true
+        if (0 == '0'); // true
+        if (false == 'false'); // false
+        if (false == '0'); // true
+        if (false == undefined); // false
+        if (false == null); // false
+        if (null == undefined); // true
+
+        let receivedNumbers = [];
+if (receivedNumbers.length) // 'if (receivedNumbers)' would always return true!
+    document.write('The array of received numbers is not empty.');
+else
+    document.write('The array is empty for now.');
+        document.write("<br >");
+
+
+    let htmlElement = document.getElementById('result');
+if (htmlElement) {
+    // found
+    document.write('element found');
+} else {
+    // not found
+    document.write('element not found');
+}
+
+document.write("<br >");
+
+let age;
+document.write(typeof age);
+document.write("<br >");
+
+function greet(language= 'en') {
+    if (language === 'en')
+        document.write('Hello World!');
+    else if (language=== 'sk')
+        document.write('Ahoj svet!');
+
+    document.write('<br>');
+}
+
+greet();
+greet('sk');
+    
+    </script>
+</body>
+</html>
