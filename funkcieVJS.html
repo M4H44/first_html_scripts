@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function greeta() {
+    document.write("Hello, welcome here!");
+    document.write("<br >");
+}
+greeta();
+greeta();
+greeta();
+
+function greet(name) {
+    document.write("Hello, welcome here " + name + "!<br />");
+}
+
+greet("Carl"); // calling the function
+greet("David");
+greet("Hansel");
+
+function greetg(name = name, greetingText = "Hello") {
+    document.write(greetingText + " " + name + "!<br>");
+}
+
+greetg("Peter");
+greetg("Jane", "Hi");
+greetg("","Ahoj");
+
+function greetb(name) {
+    return "Hello, welcome here " + name + "!";
+}
+
+let text = greetb("Carl");
+document.write(text);
+document.write("<br >");
+
+function greetc(name) {
+    return "Hello, welcome here " + name + "!";
+}
+
+let savedFunction = greetc; // now we have the greeting function stored in a variable
+let texta = savedFunction("Carl"); // we call the function using variables
+document.write(texta); //  now we print the output of the function
+    document.write("<br >");
+
+let greeting = function(name) {
+    return "Hello, welcome here " + name + "!";
+}
+
+let textb = greeting("Carl");
+document.write(textb);
+    </script>
+</body>
+</html>
