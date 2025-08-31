@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function skratenieTextu(text, dlzka){
+            if (text.length > dlzka){
+                return text.substring(0, dlzka - 3) + "...";
+            }
+            return text;
+        }
+         let original = "Black holes are where God divided by zero";
+        let shortened = skratenieTextu(original, 16);
+
+        document.write("Original text: " + original + "<br>");
+        document.write("Shortened text: " + shortened + "<br>");
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3 biggest numbers</title>
+</head>
+<body>
+    <script>
+        function sumOf3Biggest(numbers) {
+            // zoradíme pole zostupne
+            numbers.sort(function(a, b) { return b - a; });
+            // vezmeme prvé tri a spočítame
+            return numbers[0] + numbers[1] + numbers[2];
+        }
+
+        let arr = [15, 8, 12, 16, 4, 1, 5, 14];
+
+        document.write("<b>Numbers:</b><br>");
+        document.write("<ul>");
+        for (let num of arr) {
+            document.write("<li>" + num + "</li>");
+        }
+        document.write("</ul>");
+
+        let result = sumOf3Biggest(arr);
+
+        document.write("<b>Sum of 3 biggest numbers:</b> " + result);
+    </script>
+</body>
+</html>

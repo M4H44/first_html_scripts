@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date in words</title>
+</head>
+<body>
+    <script>
+        function dateInWords(date) {
+            let months = [
+                "January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ];
+
+            let day = date.getDate();           // deň v mesiaci (1–31)
+            let month = months[date.getMonth()]; // názov mesiaca
+            let year = date.getFullYear();      // celé číslo roka
+
+            return month + " " + day + ", " + year;
+        }
+
+        // Test – dnes
+        let today = new Date();
+        let formatted = dateInWords(today);
+
+        document.write("Today is: " + formatted);
+    </script>
+</body>
+</html>
