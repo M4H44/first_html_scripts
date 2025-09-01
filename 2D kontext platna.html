@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="photo.jpg" id="image" />
+<canvas id="canvas" width="510" height="340"></canvas>
+<script>
+    let canvas;
+let context;
+let image;
+
+window.onload = function () {
+    canvas = document.getElementById("canvas")
+    context = canvas.getContext("2d");
+    image = document.getElementById("image");
+    image.parentElement.removeChild(image);
+
+    // Here we will later put the scale() method to scale the image down
+
+    context.fillStyle = "red";
+    context.fillRect(0, 0, 510, 340);
+    context.save();
+    context.translate(15, 15);
+    context.drawImage(image, 0, 0);
+    context.restore();
+
+    // We'll add the remaining code right away
+}
+</script>
+</body>
+</html>
