@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Example</title>
+</head>
+<body>
+    <canvas width="500" height="500" id="canvas"></canvas>
+
+    <script>
+        let squareSize = 30;
+        let space = 5;
+        let shift = 10;
+
+        // získanie canvasu a kontextu
+        let canvas = document.getElementById("canvas");
+        let context = canvas.getContext("2d");
+
+        function drawSquare(row, column) {
+            let axisX = shift + column * (squareSize + space);
+            let axisY = shift + row * (squareSize + space);
+            context.rect(axisX, axisY, squareSize, squareSize);
+        }
+
+        context.beginPath();
+
+        // left column
+        drawSquare(1, 0);
+
+        // center column (3 štvorce nad sebou)
+        for (let i = 0; i < 3; i++) {
+            drawSquare(i, 1);
+        }
+
+        // right column
+        drawSquare(1, 2);
+
+        context.closePath();
+        context.stroke();
+
+        context.fillStyle = "red";
+        context.fill();
+    </script>
+</body>
+</html>

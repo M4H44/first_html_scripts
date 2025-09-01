@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Image Example</title>
+</head>
+<body>
+    <!-- obrázok -->
+    <img src="image.jpg" id="image" alt="My image">
+
+    <!-- canvas -->
+    <canvas width="750" height="500" id="canvas"></canvas>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    let image = document.createElement("img");
+    image.src = "imgage.jpg";
+    image.alt = "Bridge";
+    image.id = "image";
+
+    image.onload = function () {
+        let canvas = document.createElement("canvas");
+        canvas.width = 500;
+        canvas.height = 500;
+        canvas.id = "canvas";
+        document.body.appendChild(canvas);
+
+        let context = canvas.getContext("2d");
+        context.drawImage(image, 0, 0);
+    };
+});
+    </script>
+</body>
+</html>
