@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Elektrický obvod - 2 spínače + 2 žiarovky</title>
+  <style>
+    canvas {
+      border: 1px solid black;
+      display: block;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" width="700" height="400"></canvas>
+
+  <script>
+    let canvas = document.getElementById("canvas");
+    let ctx = canvas.getContext("2d");
+
+    // obrázky
+    let battery = new Image();
+    battery.src = "battery.png";
+
+    let switch0 = new Image();
+    switch0.src = "switch0.png";  // OFF
+
+    let switch1 = new Image();
+    switch1.src = "switch1.png";  // ON
+
+    let bulb0 = new Image();
+    bulb0.src = "bulb0.png";  // zhasnutá
+
+    let bulb1 = new Image();
+    bulb1.src = "bulb1.png";  // svietiaca
+
+    // stav spínačov
+    let s1 = false; // prvý (nad batériou)
+    let s2 = false; // druhý (v pravom obdĺžniku)
+
+    function drawFrame() {
+      ctx.strokeStyle = "black";
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+
+      // ľavý obdĺžnik
+      ctx.rect(50, 100, 250, 200);
+
+      // pravý obdĺžnik
+      ctx.rect(300, 100, 150, 200);
+
+      ctx.stroke();
+    }
+
+    function drawCircuit() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // rám
+      drawFrame();
+
+      // batéria
+      ctx.drawImage(battery, 35, 160, 30, 80);
+
+      // spínač nad batériou
+      ctx.drawImage(s1 ? switch1 : switch0, 120, 85, 60, 30);
+
+      // druhý spínač (vertikálny v pravom obdĺžniku)
+      ctx.save();
+      ctx.translate(360, 150);     // pozícia
+      ctx.rotate(Math.PI / 2);     // otočenie o 90°
+      ctx.drawImage(s2 ? switch1 : switch0, -15, 45, 60, 30);
+      ctx.restore();
+
+      // žiarovka vpravo (svieti ak je s1 zapnutý)
+      ctx.drawImage(s1 ? bulb1 : bulb0, 450, 170, 80, 45);
+
+      // žiarovka v strede (svieti ak sú zapnuté OBA spínače)
+      ctx.drawImage((s1 && s2) ? bulb1 : bulb0, 300, 230, 80, 45);
+    }
+
+    // kliknutie na canvas -> prepnutie spínača
+    canvas.addEventListener("click", function(e) {
+      let x = e.offsetX;
+      let y = e.offsetY;
+
+      // spínač 1 (nad batériou)
+      if (x >= 120 && x <= 180 && y >= 70 && y <= 120) {
+        s1 = !s1;
+      }
+
+      // spínač 2 (orientačne vpravo)
+      if (x >= 250 && x <= 310 && y >= 120 && y <= 180) {
+        s2 = !s2;
+      }
+
+      drawCircuit();
+    });
+
+    // Počkáme, kým sa načítajú všetky obrázky
+    let loaded = 0;
+    function checkLoaded() {
+      loaded++;
+      if (loaded === 5) { // battery + 2x switch + 2x bulb
+        drawCircuit();
+      }
+    }
+
+    battery.onload = checkLoaded;
+    switch0.onload = checkLoaded;
+    switch1.onload = checkLoaded;
+    bulb0.onload = checkLoaded;
+    bulb1.onload = checkLoaded;
+  </script>
+</body>
+</html>
