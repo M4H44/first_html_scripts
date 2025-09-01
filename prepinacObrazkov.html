@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <img src="shunt0.png" id="shunt" alt="Shunt" />
+    <script>
+       
+        let shunt;
+
+    window.onload = function() {
+    shunt = document.getElementById("shunt");
+    shunt.onclick = switchIt;
+}
+function switchIt() {
+    if (shunt.getAttribute("src") == "shunt0.png") {
+        shunt.src = "shunt1.png";
+    } else {
+        shunt.src = "shunt0.png";
+    }
+}
+    </script>
+</body>
+</html>
