@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ball</title>
+  <style>
+    canvas {
+      display: block;
+      margin: 0 auto;
+      background: white;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+
+  <script>
+    let canvas = document.getElementById("canvas");
+    let ctx = canvas.getContext("2d");
+
+    // nastavenie veľkosti canvasu podľa okna
+    canvas.width = window.innerWidth - 10;
+    canvas.height = window.innerHeight - 10;
+
+    // loptička
+    let ball = {
+      x: 100,
+      y: 100,
+      radius: 50,
+      color: "blue",
+      dx: 4,  // rýchlosť X
+      dy: 3   // rýchlosť Y
+    };
+
+    function drawBall() {
+      ctx.beginPath();
+      ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+      ctx.fillStyle = ball.color;
+      ctx.fill();
+      ctx.closePath();
+    }
+
+    function update() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawBall();
+
+      // pohyb
+      ball.x += ball.dx;
+      ball.y += ball.dy;
+
+      // odraz od strán
+      if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) {
+        ball.dx = -ball.dx;
+      }
+      if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0) {
+        ball.dy = -ball.dy;
+      }
+
+      requestAnimationFrame(update);
+    }
+
+    update();
+
+    // ak sa zmení veľkosť okna, prispôsobíme canvas
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth - 20;
+      canvas.height = window.innerHeight - 20;
+    });
+  </script>
+</body>
+</html>

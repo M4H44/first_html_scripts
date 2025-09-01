@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Animation</title>
+  <style>
+    canvas {
+      border: 1px solid black;
+      display: block;
+      margin: 20px auto;
+    }
+    div {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <button id="start">Start animation</button>
+    <button id="stop">Stop animation</button>
+  </div>
+  <canvas id="canvas" width="600" height="400"></canvas>
+
+  <script>
+    let canvas = document.getElementById("canvas");
+    let ctx = canvas.getContext("2d");
+
+    let colors = ["red", "green", "blue", "yellow", "purple", "orange", "cyan", "magenta", "gray", "pink"];
+    let intervalId = null;
+
+    // funkcia na vykreslenie základného kruhu
+    function drawCircle() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.beginPath();
+      ctx.arc(300, 200, 150, 0, 2 * Math.PI);
+      ctx.strokeStyle = "red";
+      ctx.lineWidth = 3;
+      ctx.stroke();
+    }
+
+    // funkcia na vykreslenie farebného kruhu
+    function drawColoredCircle() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      let gradient = ctx.createRadialGradient(300, 200, 10, 300, 200, 150);
+      for (let i = 0; i < 10; i++) {
+        let color = colors[Math.floor(Math.random() * colors.length)];
+        gradient.addColorStop(i / 9, color);
+      }
+
+      ctx.beginPath();
+      ctx.arc(300, 200, 150, 0, 2 * Math.PI);
+      ctx.fillStyle = gradient;
+      ctx.fill();
+    }
+
+    // po načítaní zobrazíme základný kruh
+    drawCircle();
+
+    // spustenie animácie
+    document.getElementById("start").onclick = function() {
+      if (!intervalId) {
+        drawColoredCircle(); // okamžite
+        intervalId = setInterval(drawColoredCircle, 3000);
+      }
+    };
+
+    // zastavenie animácie
+    document.getElementById("stop").onclick = function() {
+      clearInterval(intervalId);
+      intervalId = null;
+      drawCircle(); // vrátime späť základný kruh
+    };
+  </script>
+</body>
+</html>
