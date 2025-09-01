@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rain Example</title>
+</head>
+<body>
+    <canvas width="500" height="600" id="canvas"></canvas>
+
+    <script>
+        let canvas = document.getElementById("canvas");
+        let context = canvas.getContext("2d");
+
+        let house = new Image();
+        house.src = "house.png"; // názov súboru obrázka domu
+
+        house.onload = function () {
+            // najprv nakreslíme dom
+            context.drawImage(house, 0, 0, canvas.width, canvas.height);
+
+            // teraz nakreslíme dážď (100 kvapiek)
+            context.strokeStyle = "darkblue";
+            for (let i = 0; i < 100; i++) {
+                let x = Math.random() * canvas.width;    // náhodná x súradnica
+                let y = Math.random() * canvas.height;   // náhodná y súradnica
+                let length = 25; // dĺžka kvapky
+
+                context.beginPath();
+                context.moveTo(x, y);
+                context.lineTo(x + 10, y + length); // trochu šikmo
+                context.stroke();
+            }
+        };
+    </script>
+</body>
+</html>
