@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <style>
+        h2 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        table {
+            border-collapse: collapse;
+            margin: auto;
+        }
+        th, td {
+            border: 1px solid black;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+        }
+        th {
+            background-color: lightblue;
+        }
+        .today {
+            background-color: lightgreen;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        window.onload = function () {
+            // aktuálny dátum
+            let today = new Date();
+            let currentMonth = today.getMonth();     // 0–11
+            let currentYear = today.getFullYear();
+            let currentDay = today.getDate();        // číslo dňa v mesiaci
+
+            // názvy mesiacov
+            let monthNames = [
+                "Január", "Február", "Marec", "Apríl", "Máj", "Jún",
+                "Júl", "August", "September", "Október", "November", "December"
+            ];
+
+            // nadpis s mesiacom a rokom
+            let heading = document.createElement("h2");
+            heading.textContent = monthNames[currentMonth] + " " + currentYear;
+            document.body.appendChild(heading);
+
+            // počet dní v mesiaci
+            let daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+            // deň v týždni prvého dňa (0 = pondelok, 6 = nedeľa)
+            let firstDay = new Date(currentYear, currentMonth, 1).getDay();
+            if (firstDay === 0) {
+                firstDay = 6;  // nedeľa → posledný stĺpec
+            } else {
+                firstDay = firstDay - 1; // pondelok → 0
+            }
+
+            // vytvoríme tabuľku
+            let table = document.createElement("table");
+            document.body.appendChild(table);
+
+            // hlavička s dňami v týždni
+            let headerRow = document.createElement("tr");
+            let days = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"];
+            for (let d of days) {
+                let th = document.createElement("th");
+                th.textContent = d;
+                headerRow.appendChild(th);
+            }
+            table.appendChild(headerRow);
+
+            // telo tabuľky s dátumami
+            let date = 1;
+            for (let i = 0; i < 6; i++) { // max. 6 riadkov
+                let row = document.createElement("tr");
+
+                for (let j = 0; j < 7; j++) { // 7 dní v týždni
+                    let cell = document.createElement("td");
+
+                    if (i === 0 && j < firstDay) {
+                        cell.textContent = "";
+                    } else if (date > daysInMonth) {
+                        cell.textContent = "";
+                    } else {
+                        cell.textContent = date;
+
+                        // podfarbíme dnešný deň
+                        if (date === currentDay) {
+                            cell.classList.add("today");
+                        }
+
+                        date++;
+                    }
+                    row.appendChild(cell);
+                }
+                table.appendChild(row);
+
+                if (date > daysInMonth) break;
+            }
+        };
+    </script>
+</body>
+</html>

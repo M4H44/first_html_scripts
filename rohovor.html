@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p data-speaker="Mark">Hi, how are you?</p>
+    <p data-speaker="Paul">Fine and you?</p>
+    <p data-speaker="Mark">I'm sad because I got an F at school.</p>
+    <p data-speaker="Paul">What didn’t you know?</p>
+    <p data-speaker="Mark">How to resolve this task in JavaScript.</p>
+    <script>
+        window.onload = function() {
+    // vyberieme všetky elementy, ktoré majú atribút data-speaker
+    let paragraphs = document.querySelectorAll("[data-speaker]");
+
+    paragraphs.forEach(p => {
+        let speaker = p.getAttribute("data-speaker"); // získa hodnotu atribútu (napr. "Mark")
+
+        let span = document.createElement("span");
+        span.textContent = speaker + " said: "; // vytvorí text "Mark said:"
+
+        // vloží span na začiatok obsahu odseku
+        p.insertBefore(span, p.firstChild);
+
+        // obalíme text v úvodzovkách
+        p.innerHTML = p.innerHTML.replace(/>([^<]+)$/, '>"$1"');
+    });
+};
+    </script>
+</body>
+</html>

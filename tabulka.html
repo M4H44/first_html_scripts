@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Table sorting</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid gray;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #9bbb59;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        button {
+            margin-left: 5px;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+    <table id="sortable">
+        <thead>
+            <tr>
+                <th>Nick</th>
+                <th>Aura</th>
+                <th>Comments</th>
+                <th>Articles</th>
+                <th>Games</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>John Smith</td><td>75</td><td>1888</td><td>3</td><td>11</td></tr>
+            <tr><td>Kate Brown</td><td>246</td><td>8961</td><td>971</td><td>95</td></tr>
+            <tr><td>Michael Langton</td><td>608</td><td>3953</td><td>105</td><td>19</td></tr>
+            <tr><td>Jack Bittner</td><td>695</td><td>1904</td><td>27</td><td>8</td></tr>
+        </tbody>
+    </table>
+
+    <script>
+        window.onload = function () {
+    let table = document.getElementById("sortable");
+    let headers = table.querySelectorAll("th");
+
+    headers.forEach((th, index) => {
+        // vytvoríme tlačidlo "S" do každej hlavičky
+        let btn = document.createElement("button");
+        btn.textContent = "S";
+        th.appendChild(btn);
+
+        // stav zoradenia (true = vzostupne, false = zostupne)
+        let ascending = true;
+
+        btn.onclick = function () {
+            let rows = Array.from(table.tBodies[0].rows);
+
+            rows.sort((a, b) => {
+                let aText = a.cells[index].textContent.trim();
+                let bText = b.cells[index].textContent.trim();
+
+                // ak je hodnota číslo, porovnávame číselne
+                let aVal = isNaN(aText) ? aText.toLowerCase() : Number(aText);
+                let bVal = isNaN(bText) ? bText.toLowerCase() : Number(bText);
+
+                if (aVal < bVal) return ascending ? -1 : 1;
+                if (aVal > bVal) return ascending ? 1 : -1;
+                return 0;
+            });
+
+            // znova vložíme zoradené riadky do <tbody>
+            rows.forEach(row => table.tBodies[0].appendChild(row));
+
+            // zmeníme smer zoradenia na opačný
+            ascending = !ascending;
+        };
+    });
+};
+
+    </script>
+</body>
+</html>
