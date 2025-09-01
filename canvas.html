@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas width="500" height="500" id="canvas"></canvas>
+    <script>
+        let canvas;
+        let context;
+
+window.onload = function () {
+    canvas = document.getElementById("canvas");
+    context = canvas.getContext("2d");
+
+    //context.fillRect(50, 50, 100, 100);
+    //context.strokeRect(200, 50, 100, 100);
+    /*context.beginPath();
+context.moveTo(20, 20);
+context.lineTo(40, 150);
+context.closePath();
+context.stroke();
+context.beginPath();
+context.moveTo(120, 20);
+context.lineTo(140, 150);
+context.lineTo(200, 100);
+context.closePath();
+context.stroke();
+context.beginPath();
+context.moveTo(270, 20);
+context.lineTo(290, 150);
+context.lineTo(350, 100);
+context.closePath();
+context.fill();
+context.beginPath();
+context.arc(100, 100, 80, 0, Math.PI * 2);
+context.closePath();
+context.fill();
+context.beginPath();
+context.arc(100, 100, 80, 0, Math.PI * 2);
+context.closePath();
+context.fill();
+context.beginPath();
+context.arc(300, 100, 80, 0, Math.PI * 2);
+context.closePath();
+context.stroke();*/
+context.beginPath();
+context.arc(100, 100, 80, 0, Math.PI);
+context.closePath();
+context.stroke();
+context.beginPath();
+context.arc(300, 100, 80, 0, Math.PI, true);
+context.closePath();
+context.fill();
+}
+
+    </script>
+</body>
+</html>
