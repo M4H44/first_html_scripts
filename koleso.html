@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotating Wheel</title>
+</head>
+<body>
+    <img src="wheel.png" id="wheel" />
+    <canvas id="canvas" width="500" height="500"></canvas>
+
+<script>
+let canvas;
+let context;
+let image;
+let rotation = 0;
+
+document.addEventListener("DOMContentLoaded", function() {
+    canvas = document.getElementById("canvas");
+    context = canvas.getContext("2d");
+    image = document.getElementById("wheel");
+    image.style.display = "none";
+
+    function redraw() {
+        context.clearRect(0, 0, 500, 500);
+        context.save();
+        context.translate(250, 250);
+        context.rotate(rotation);
+        context.drawImage(image, -225, -225);
+        context.restore();
+        rotation += (2 * Math.PI) / 360;
+    }
+
+    // spustíme animáciu
+    redraw();
+    let interval = setInterval(redraw, 20);
+
+    window.addEventListener("beforeunload", function() {
+        clearInterval(interval);
+    });
+});
+</script>
+</body>
+</html>
